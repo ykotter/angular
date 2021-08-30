@@ -1,0 +1,27 @@
+th, tr, td {
+    border: solid;
+    border-color:black;
+    border-width: 2px;
+    padding: 5px;
+}
+
+div, table {
+    margin: 5px;
+    padding: 5px;
+}
+
+.maisInfo {
+    color:blue;
+    text-decoration: underline;
+}
+
+.maisInfo:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+}
+
+button {
+    margin-right: 5px;
+}
