@@ -1,0 +1,76 @@
+{
+  "funcionarios": [
+    {
+      "id": 1,
+      "cpf": "98452189036",
+      "nome": "Jailson Santos",
+      "filial": "MATRIZ",
+      "dataAdmissao": "2020-08-22",
+      "cargo": "Assistente administrativo",
+      "salario": 5236.45
+    },
+    {
+      "id": 2,
+      "cpf": "50328223026",
+      "nome": "Carlos Eduardo",
+      "filial": "FILIAL1",
+      "dataAdmissao": "2018-05-15",
+      "cargo": "Programador",
+      "salario": 3256
+    },
+    {
+      "id": 3,
+      "cpf": "60008387001",
+      "nome": "Adriana Zardony",
+      "filial": "FILIAL3",
+      "dataAdmissao": "2021-03-09",
+      "cargo": "Analista de sistemas",
+      "salario": 5412.94
+    },
+    {
+      "id": 4,
+      "cpf": "93043181069",
+      "nome": "Rafaela Tartuna",
+      "filial": "FILIAL2",
+      "dataAdmissao": "2019-01-22",
+      "cargo": "Arquiteto de software",
+      "salario": 5518
+    },
+    {
+      "id": 5,
+      "cpf": "59262322011",
+      "nome": "Bernardo Kaylos",
+      "filial": "FILIAL2",
+      "dataAdmissao": "2017-10-28",
+      "cargo": "Arquiteto de software",
+      "salario": 7185.27
+    },
+    {
+      "id": 6,
+      "cpf": "65507723036",
+      "nome": "Laura Janice",
+      "filial": "FILIAL1",
+      "dataAdmissao": "2020-11-04",
+      "cargo": "Analista de qualidade",
+      "salario": 6281.65518
+    },
+    {
+      "id": 7,
+      "cpf": "72902628080",
+      "nome": "Marcelo Madureira",
+      "filial": "FILIAL1",
+      "dataAdmissao": "2018-07-18",
+      "cargo": "Coordenador",
+      "salario": 8497.23
+    },
+    {
+      "nome": "Gustavo Cancelier",
+      "cpf": "29762743040",
+      "filial": "FILIAL3",
+      "dataAdmissao": "2006/04/16",
+      "cargo": "Gerente",
+      "salario": 12500,
+      "id": 8
+    }
+  ]
+}

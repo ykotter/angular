@@ -9,24 +9,30 @@
 <table>
   <tr>
       <th>Nome</th>
+      <th>CPF</th>
       <th>Filial</th>
       <th>Data de admissão</th>
       <th>Cargo</th>
       <th>Salário</th>
       <th>Mais informações</th>
+      <th>Ação</th>
   </tr>
-  <tr *ngFor='let funcionario of funcionarios'>
+  <tr *ngFor='let funcionario of funcionarios' (click)='selecionarFuncionario(funcionario)' >
       <td>{{ funcionario.nome }}</td>
+      <td>{{ funcionario.cpf | cpf: '.' : '.' : '-'}}</td>
       <td>{{ funcionario.filial }}</td>
-      <td>{{ funcionario.admissao }}</td>
+      <td>{{ funcionario.dataAdmissao | date:'dd/MM/yyyy'}}</td>
       <td>{{ funcionario.cargo }}</td>
-      <td>{{ funcionario.salario }}</td>
+      <td>{{ funcionario.salario | currency:'BRL'}}</td>
       <td class="maisInfo" (click)="maisInfo(funcionario)">Ver detalhes</td>
+      <td class="remover" (click)="removerFuncionario(funcionario)">Remover</td>
   </tr>
 </table>
 <div>
-  <button type="button">Remover último funcionário</button>
-  <button type="button">Remover primeiro funcionário</button>
-  <button type="button">Adicionar funcionário</button>
-  <button type="button" (click)="removerTodos(funcionario)">Remover todos funcionário</button>
+  <button class="btn-add" type="button" (click)="addFuncionario()">Adicionar funcionário</button>
+  <button class="btn-remov-pos" type="button" (click)="removerUltimo(funcionario)">Remover último funcionário</button>
+  <button class="btn-remov-pos" type="button" (click)="removerPrimeiro(funcionario)">Remover primeiro funcionário</button>
+  <button class="btn-remov" type="button" (click)="removerTodos(funcionario)">Remover todos funcionário</button>
 </div>
+<hr>
+<app-component *ngIf='funcionarioSelecionado' [funcionario]='funcionarioSelecionado' (deselecionarFuncionario)='funcionarioSelecionado'><app-component>

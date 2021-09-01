@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Funcionario } from '../app/interface'
+import { EnumFilial } from '../app/filial'
+import { FuncionarioService } from './services/funcionario.service';
 
 @Component({
   selector: 'app-root',
@@ -8,65 +11,64 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   
-  funcionarios = []
+  funcionarios: Funcionario[] = [];
 
-  constructor() {
-    this.funcionarios = this.armazenador();
+  novoFuncionario;
+
+  funcionarioSelecionado: Funcionario;
+
+  constructor(private funcionarioService: FuncionarioService) {
+    this.armazenador();
   }
   
+
   
   private armazenador() {
-    return[ 
-      {
-        nome: 'Marcos',
-        filial: 'Filial1',
-        admissao: '18/08/2009',
-        cargo: 'Cargo1',
-        salario: '4.000.99',
-      },
-      {
-        nome: 'João',
-        filial: 'Filial1',
-        admissao: '03/12/2018',
-        cargo: 'Cargo2',
-        salario: '2.500,50',
-      },
-      {
-        nome: 'Júlia',
-        filial: 'Filial3',
-        admissao: '30/04/2021',
-        cargo: 'Cargo3',
-        salario: '3.235,00',
-      },
-      {
-        nome: 'Maria',
-        filial: 'Filial2',
-        admissao: '15/10/2015',
-        cargo: 'Cargo2',
-        salario: '2.950,90',
-      },
-      {
-        nome: 'Felipe',
-        filial: 'Filial3',
-        admissao: '20/01/2012',
-        cargo: 'Cargo3',
-        salario: '3.500,60',
-      }
-    ]
+    this.funcionarioService.listarFuncionario().subscribe((respostaBackend) => {
+      this.funcionarios = respostaBackend;
+    });
+  }
+
+  addFuncionario() { 
+    this.novoFuncionario = {
+      nome: "Gustavo",
+      cpf: "29762743040",
+      filial: "FILIAL3",
+      dataAdmissao: "2006/04/16",
+      cargo: "Gerente",
+      salario: 6500.00
+    }
+    this.funcionarioService.adicionarFuncionario(this.novoFuncionario).subscribe((respostaBackend: Funcionario) => {
+      respostaBackend = this.novoFuncionario;
+      this.armazenador();
+    })
   }
 
   removerTodos() {
-    this.funcionarios = []
+    this.funcionarios = [];
   }
 
   removerPrimeiro() {
-    this.funcionarios.shift()
+    this.funcionarios.shift();
+  }
+
+  removerUltimo() {
+    this.funcionarios.pop();
+  }
+
+  removerFuncionario(funcionario) {
+    const index = this.funcionarios.indexOf(funcionario);
+    this.funcionarios.splice(index, 1)
   }
 
 
   maisInfo(funcionario) {
-   alert(funcionario.nome);
+   alert('O funcionário ' + funcionario.nome + ', trabalha na filial ' + funcionario.filial + ', ocupando o cargo de ' + funcionario.cargo + ', sendo remunerado com o valor de ' + funcionario.salario + ',  desde a sua data de contratação em ' + funcionario.admissao);
+  }
+
+  selecionarFuncionario(funcionario) {
+    this.funcionarioService.obterDadosFuncionario(funcionario.id).subscribe((respostaBackend) => {
+      this.funcionarioSelecionado = respostaBackend
+    })
   }
 }
-
-

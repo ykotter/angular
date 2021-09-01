@@ -1,0 +1,15 @@
+<div class="maisInfo">
+    <p><b>Nome:</b><span>{{ funcionario.nome }}</span></p>
+
+    <p><b>Cpf:</b><span>{{ funcionario.cpf | cpf: '.' : '.' : '-' }}</span></p>
+
+    <p><b>Filial:</b><span>{{ funcionario.filial }}</span></p>
+
+    <p><b>Data de admissão:</b><span>{{ funcionario.admissao | date:'dd/MM/yyyy' }}</span></p>
+
+    <p><b>Cargo:</b><span>{{ funcionario.cargo }}</span></p>
+    
+    <p><b>Salário:</b><span>{{ funcionario.salario | currency:'BRL' }}</span></p>
+
+    <button type="button" (click)='deselecionar()'>Deselecionar</button>
+</div>
