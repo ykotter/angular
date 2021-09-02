@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Funcionario } from '../app/interface'
-import { EnumFilial } from '../app/filial'
+import { Funcionario } from './model/interface'
+import { EnumFilial } from './model/filial'
 import { FuncionarioService } from './services/funcionario.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class AppComponent {
   funcionarios: Funcionario[] = [];
 
   novoFuncionario;
+
+  funcionarioAlteracao;
 
   funcionarioSelecionado: Funcionario;
 
@@ -57,10 +59,11 @@ export class AppComponent {
   }
 
   removerFuncionario(funcionario) {
-    const index = this.funcionarios.indexOf(funcionario);
-    this.funcionarios.splice(index, 1)
+    this.funcionarioService.removerFuncionario(funcionario.id).subscribe((respostaBackend) => {
+      this.funcionarioSelecionado = respostaBackend
+      this.armazenador();
+    })
   }
-
 
   maisInfo(funcionario) {
    alert('O funcionário ' + funcionario.nome + ', trabalha na filial ' + funcionario.filial + ', ocupando o cargo de ' + funcionario.cargo + ', sendo remunerado com o valor de ' + funcionario.salario + ',  desde a sua data de contratação em ' + funcionario.admissao);

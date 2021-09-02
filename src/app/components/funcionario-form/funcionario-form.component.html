@@ -1,0 +1,41 @@
+<form [formGroup]="funcionarioForm" (ngSubmit)="salvar()">
+    <fieldset>
+        <legend>Cadastro de funcionário</legend>
+        <p>
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" name="nome" formControlName="nome" placeholder="Informe o nome" maxlength="20" required>
+        </p>
+        <p>
+            <label for="cpf">CPF:</label>
+            <input id="cpf" type="text" name="cpf" formControlName="cpf" placeholder="Informe o CPF" minLenght="11" maxlength="11">
+        </p>
+        <p>
+            <label for="filial">Filial onde trabalha:</label>
+            <select id="filial" name="filial" formControlName="filial">
+                <option value="">Escolha uma filial</option>
+                <option value="MATRIZ">Matriz</option>
+                <option value="FILIAL1">Filial-1</option>
+                <option value="FILIAL2">Filial-2</option>
+                <option value="FILIAL3">Filial-3</option>
+            </select>
+        </p>
+        <p>
+            <label for="admissao">Data de admissao:</label>
+            <input id="admissao" type="date" name="admissao" formControlName="dataAdmissao">
+        </p>
+        <p>
+            <label for="cargo">Cargo que ocupa:</label>
+            <input id="cargo" type="text" name="cargo" placeholder="Informe o cargo" formControlName="cargo"> 
+        </p>
+        <p>
+            <label for="salario">Salário:</label>
+            <input id="salario" type="number" name="salario" placeholder="Informe o salário" formControlName="salario">
+        </p>
+        <div>
+            <button type="submit" [disabled]="funcionarioForm.invalid" (click)="cadastrar()">Cadastrar</button>
+            <button type="reset">Limpar</button>
+            <button type="button" (click)="informacoes()">Informações</button>
+            <button type="button" (click)="alterar()">Alterar</button>
+        </div>
+    </fieldset>
+</form>

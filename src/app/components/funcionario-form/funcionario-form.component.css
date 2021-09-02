@@ -1,0 +1,14 @@
+* {
+    margin: 5px;
+    padding: 5px;
+}
+
+.label-invalido {
+    margin-left: 10px;
+    font-size: 11px;
+    color: red;
+  }
+  
+  .invalido {
+    border: 2px solid red;
+  }

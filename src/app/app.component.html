@@ -16,6 +16,7 @@
       <th>Salário</th>
       <th>Mais informações</th>
       <th>Ação</th>
+      <th>Editar</th>
   </tr>
   <tr *ngFor='let funcionario of funcionarios' (click)='selecionarFuncionario(funcionario)' >
       <td>{{ funcionario.nome }}</td>
@@ -26,6 +27,7 @@
       <td>{{ funcionario.salario | currency:'BRL'}}</td>
       <td class="maisInfo" (click)="maisInfo(funcionario)">Ver detalhes</td>
       <td class="remover" (click)="removerFuncionario(funcionario)">Remover</td>
+      <td class="editar" (click)="alterarFuncionario(funcionario)">Alterar Informações</td>
   </tr>
 </table>
 <div>
@@ -35,4 +37,6 @@
   <button class="btn-remov" type="button" (click)="removerTodos(funcionario)">Remover todos funcionário</button>
 </div>
 <hr>
-<app-component *ngIf='funcionarioSelecionado' [funcionario]='funcionarioSelecionado' (deselecionarFuncionario)='funcionarioSelecionado'><app-component>
+<app-component *ngIf='funcionarioSelecionado' [funcionario]='funcionarioSelecionado' (deselecionarFuncionario)='funcionarioSelecionado'></app-component>
+
+<app-funcionario-form></app-funcionario-form>

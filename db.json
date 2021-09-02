@@ -71,6 +71,15 @@
       "cargo": "Gerente",
       "salario": 12500,
       "id": 8
+    },
+    {
+      "nome": "asdasd",
+      "cpf": "11111111111",
+      "filial": "FILIAL1",
+      "dataAdmissao": "2021-09-22",
+      "cargo": "asdsad",
+      "salario": 1,
+      "id": 9
     }
   ]
 }
